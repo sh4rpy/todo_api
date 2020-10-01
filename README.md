@@ -14,6 +14,7 @@ REST api персонализированного сервиса, позволя
 /api/v1/tasks/ - создать задачу, необходимо передать title, description, status и deadline (POST)
 /api/v1/tasks/<int:task_id>/ - просмотр конкретной задачи по ее id (GET)
 /api/v1/tasks/<int:task_id>/ - изменение/удаление конкретной задачи по ее id (PUT, PATCH, DELETE)
+/api/v1/tasks/<int:task_id>/change_history/ - просмотр истории изменений задачи (GET)
 ```
 
 ### Как запустить?
