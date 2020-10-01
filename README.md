@@ -9,7 +9,6 @@ REST api персонализированного сервиса, позволя
 ```
 /api/v1/register/ - регистрация пользователя по логину и паролю (POST)
 /api/v1/token/ - получить токен по логину и паролю (POST)
-/api/v1/token/refresh/ - обновить токен, необходимо передать refresh-токен (POST)
 /api/v1/tasks/ - список всех задач пользователя (GET)
 /api/v1/tasks/ - создать задачу, необходимо передать title, description, status и deadline (POST)
 /api/v1/tasks/<int:task_id>/ - просмотр конкретной задачи по ее id (GET)
