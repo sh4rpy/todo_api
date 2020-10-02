@@ -39,6 +39,7 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     'tasks',
+    'users',
     'rest_framework',
     'django_filters',
     'rest_framework.authtoken',

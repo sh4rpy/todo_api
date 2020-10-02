@@ -3,20 +3,7 @@ import datetime
 from rest_framework import serializers
 
 from . import custom_fields
-from .models import User, Task, TaskHistory
-
-
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ('id', 'username', 'password', )
-        extra_kwargs = {'password': {'write_only': True}}
-
-    def create(self, validated_data):
-        user = User.objects.create(username=validated_data['username'])
-        user.set_password(validated_data['password'])
-        user.save()
-        return user
+from .models import Task, TaskHistory
 
 
 class TaskSerializer(serializers.ModelSerializer):
@@ -28,7 +15,7 @@ class TaskSerializer(serializers.ModelSerializer):
         fields = ('id', 'user', 'title', 'description', 'creation_time', 'status', 'deadline', )
 
     def validate(self, data):
-        if data['deadline'] < datetime.date.today():
+        if data.get('deadline') and data['deadline'] < datetime.date.today():
             raise serializers.ValidationError('Дата завершения меньше сегодняшней')
         return data
 

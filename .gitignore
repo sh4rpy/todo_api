@@ -1,5 +1,6 @@
 venv
 tasks/migrations
+users/migrations
 .env
 __pycache__
 .idea

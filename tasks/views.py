@@ -1,18 +1,12 @@
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import viewsets, permissions, mixins
+from rest_framework import viewsets, permissions
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
 from .models import Task
-from .serializers import UserSerializer, TaskSerializer, TaskHistorySerializer
-
-
-class UserViewSet(mixins.CreateModelMixin,
-                  viewsets.GenericViewSet):
-    serializer_class = UserSerializer
-    permission_classes = [permissions.AllowAny, ]
+from .serializers import TaskSerializer, TaskHistorySerializer
 
 
 class TaskViewSet(viewsets.ModelViewSet):
