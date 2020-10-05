@@ -21,6 +21,8 @@ class TaskSerializer(serializers.ModelSerializer):
 
 
 class TaskHistorySerializer(serializers.ModelSerializer):
+    status = custom_fields.CustomChoiceField(choices=Task.STATUS_CHOICES)
+
     class Meta:
         model = TaskHistory
         fields = '__all__'
