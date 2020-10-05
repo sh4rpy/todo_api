@@ -12,7 +12,7 @@ class TaskSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Task
-        fields = ('id', 'user', 'title', 'description', 'creation_time', 'status', 'deadline', )
+        fields = '__all__'
 
     def validate(self, data):
         if data.get('deadline') and data['deadline'] < datetime.date.today():
@@ -21,8 +21,6 @@ class TaskSerializer(serializers.ModelSerializer):
 
 
 class TaskHistorySerializer(serializers.ModelSerializer):
-    task = serializers.ReadOnlyField(source='task.title')
-
     class Meta:
         model = TaskHistory
-        fields = ('id', 'task', 'title', 'description', 'creation_time', 'status', 'deadline', )
+        fields = '__all__'
